@@ -10,7 +10,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        NavigationView {
+            GridStack(rows: 3, columns: 3) { row, col in
+                Image("default")
+                   .renderingMode(.original)
+                    .cornerRadius(10)
+                .shadow(color: .black, radius: 1)
+            }
+                .navigationBarTitle("Camshot")
+            .navigationBarItems(trailing:
+                Button(action: showCam) {
+                    Image("cam-icon")
+                }
+            )
+        }
+    }
+    
+    private func showCam(){
+        print("Edit button pressed...")
     }
 }
 

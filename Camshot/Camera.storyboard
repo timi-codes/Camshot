@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="jqT-Xz-T5e">
+            <objects>
+                <viewController id="jB6-Rd-upP" customClass="CameraViewController" customModule="Camshot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yMd-xb-Pdy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weQ-OR-8b8">
+                                <rect key="frame" x="167" y="764" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Vy9-lK-ZhI"/>
+                                    <constraint firstAttribute="height" constant="80" id="aTI-K2-7Td"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="record-button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="weQ-OR-8b8" firstAttribute="bottom" secondItem="AY5-sA-18L" secondAttribute="bottom" constant="-18" id="8c9-6u-lfw"/>
+                            <constraint firstItem="weQ-OR-8b8" firstAttribute="centerX" secondItem="yMd-xb-Pdy" secondAttribute="centerX" id="zbr-Cu-AgE"/>
+                            <constraint firstItem="weQ-OR-8b8" firstAttribute="centerX" secondItem="yMd-xb-Pdy" secondAttribute="centerX" id="zlL-qD-BAg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AY5-sA-18L"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XIB-5F-vEu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="record-button" width="208" height="208"/>
+    </resources>
+</document>
