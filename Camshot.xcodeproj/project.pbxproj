@@ -8,30 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		1C4C9EA324126B8D0099615C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C9EA224126B8D0099615C /* AppDelegate.swift */; };
-		1C4C9EA524126B8D0099615C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C9EA424126B8D0099615C /* SceneDelegate.swift */; };
-		1C4C9EA724126B8D0099615C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C9EA624126B8D0099615C /* ContentView.swift */; };
 		1C4C9EA924126B910099615C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C9EA824126B910099615C /* Assets.xcassets */; };
-		1C4C9EAC24126B910099615C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C9EAB24126B910099615C /* Preview Assets.xcassets */; };
 		1C4C9EAF24126B910099615C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C9EAD24126B910099615C /* LaunchScreen.storyboard */; };
-		1C4C9EB72412D23D0099615C /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C9EB62412D23D0099615C /* GridStack.swift */; };
-		1C4C9EB92412E2440099615C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C9EB82412E2440099615C /* CameraView.swift */; };
-		1C4C9EBB2412E35D0099615C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C9EBA2412E35D0099615C /* CameraViewController.swift */; };
-		1C4C9EBF2412EE770099615C /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C9EBE2412EE770099615C /* Camera.storyboard */; };
+		1C57D8142413BB8C005056CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C57D8132413BB8C005056CA /* Main.storyboard */; };
+		1C57D8162413BBC0005056CA /* VideoCatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57D8152413BBC0005056CA /* VideoCatalogueViewController.swift */; };
+		1CAB054A2413C3FC005C2BE2 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */; };
+		1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */; };
+		1CAB054E2413E63F005C2BE2 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054D2413E63F005C2BE2 /* PlayButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C4C9E9F24126B8D0099615C /* Camshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C9EA224126B8D0099615C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C4C9EA424126B8D0099615C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1C4C9EA624126B8D0099615C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1C4C9EA824126B910099615C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1C4C9EAB24126B910099615C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1C4C9EAE24126B910099615C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C4C9EB024126B910099615C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1C4C9EB62412D23D0099615C /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
-		1C4C9EB82412E2440099615C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		1C4C9EBA2412E35D0099615C /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		1C4C9EBE2412EE770099615C /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		1C57D8132413BB8C005056CA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1C57D8152413BBC0005056CA /* VideoCatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCatalogueViewController.swift; sourceTree = "<group>"; };
+		1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		1CAB054D2413E63F005C2BE2 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,26 +61,16 @@
 			isa = PBXGroup;
 			children = (
 				1C4C9EA224126B8D0099615C /* AppDelegate.swift */,
-				1C4C9EA424126B8D0099615C /* SceneDelegate.swift */,
-				1C4C9EA624126B8D0099615C /* ContentView.swift */,
 				1C4C9EA824126B910099615C /* Assets.xcassets */,
 				1C4C9EAD24126B910099615C /* LaunchScreen.storyboard */,
 				1C4C9EB024126B910099615C /* Info.plist */,
-				1C4C9EAA24126B910099615C /* Preview Content */,
-				1C4C9EB62412D23D0099615C /* GridStack.swift */,
-				1C4C9EB82412E2440099615C /* CameraView.swift */,
-				1C4C9EBA2412E35D0099615C /* CameraViewController.swift */,
-				1C4C9EBE2412EE770099615C /* Camera.storyboard */,
+				1C57D8132413BB8C005056CA /* Main.storyboard */,
+				1C57D8152413BBC0005056CA /* VideoCatalogueViewController.swift */,
+				1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */,
+				1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */,
+				1CAB054D2413E63F005C2BE2 /* PlayButton.swift */,
 			);
 			path = Camshot;
-			sourceTree = "<group>";
-		};
-		1C4C9EAA24126B910099615C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1C4C9EAB24126B910099615C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4C9EAF24126B910099615C /* LaunchScreen.storyboard in Resources */,
-				1C4C9EBF2412EE770099615C /* Camera.storyboard in Resources */,
-				1C4C9EAC24126B910099615C /* Preview Assets.xcassets in Resources */,
+				1C57D8142413BB8C005056CA /* Main.storyboard in Resources */,
 				1C4C9EA924126B910099615C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,12 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAB054A2413C3FC005C2BE2 /* RecordViewController.swift in Sources */,
+				1CAB054E2413E63F005C2BE2 /* PlayButton.swift in Sources */,
+				1C57D8162413BBC0005056CA /* VideoCatalogueViewController.swift in Sources */,
 				1C4C9EA324126B8D0099615C /* AppDelegate.swift in Sources */,
-				1C4C9EA524126B8D0099615C /* SceneDelegate.swift in Sources */,
-				1C4C9EB72412D23D0099615C /* GridStack.swift in Sources */,
-				1C4C9EB92412E2440099615C /* CameraView.swift in Sources */,
-				1C4C9EA724126B8D0099615C /* ContentView.swift in Sources */,
-				1C4C9EBB2412E35D0099615C /* CameraViewController.swift in Sources */,
+				1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -286,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -301,7 +285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Camshot/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4D76457L5H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Camshot/Info.plist;
@@ -321,7 +305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Camshot/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4D76457L5H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Camshot/Info.plist;
