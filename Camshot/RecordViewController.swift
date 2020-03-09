@@ -13,6 +13,7 @@ import AVFoundation
 
 class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var switchCam: UIButton!
     
     var captureSession = AVCaptureSession()
     
@@ -32,16 +33,19 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nav = self.navigationController?.navigationBar
+        nav?.isHidden = true
+        
         setupCaptureSession()
         setupDevice()
         setupInputOutput()
         setupPreviewLayer()
         startRunningCaptureSession()
         
-        toggleCameraGestureRecognizer.direction = .up
-        toggleCameraGestureRecognizer.addTarget(self, action: #selector(self.switchCamera))
-        view.addGestureRecognizer(toggleCameraGestureRecognizer)
-        
+//        toggleCameraGestureRecognizer.direction = .up
+//        toggleCameraGestureRecognizer.addTarget(self, action: #selector(self.switchCamera))
+//        view.addGestureRecognizer(toggleCameraGestureRecognizer)
+//
         // Zoom In recognizer
         zoomInGestureRecognizer.direction = .right
         zoomInGestureRecognizer.addTarget(self, action: #selector(zoomIn))
@@ -96,32 +100,31 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     }
     
     @IBAction func startRecordingButton(_ sender: UIButton) {
-        print("started recording")
-        isRecording = true
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: { () -> Void in
-            self.recordButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        }, completion: nil)
-        
-        let outputPath = NSTemporaryDirectory() + "output.mov"
-        let outputFileURL = URL(fileURLWithPath: outputPath)
-        videoFileOutput?.startRecording(to: outputFileURL, recordingDelegate: self)
+        if isRecording == true {
+            print("stopped recording")
+            isRecording = false
+              UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: { () -> Void in
+                  self.recordButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+              }, completion: nil)
+              
+              recordButton.layer.removeAllAnimations()
+              videoFileOutput?.stopRecording()
+        }else {
+            print("started recording")
+            isRecording = true
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: { () -> Void in
+                  self.recordButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+              }, completion: nil)
+              
+            let outputPath = NSTemporaryDirectory() + "output.mov"
+            let outputFileURL = URL(fileURLWithPath: outputPath)
+            videoFileOutput?.startRecording(to: outputFileURL, recordingDelegate: self)
+        }
     }
     
     
-    @IBAction func stopRecordingButton(_ sender: UIButton) {
-        print("stopped recording")
-        isRecording = false
-        
-        UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: { () -> Void in
-            self.recordButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }, completion: nil)
-        
-        recordButton.layer.removeAllAnimations()
-        videoFileOutput?.stopRecording()
-    }
-    
-    @objc func switchCamera() {
+    @IBAction func switchCamera(_ sender: UIButton) {
         captureSession.beginConfiguration()
         
         // Change the device based on the current camera

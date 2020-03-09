@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,15 @@
 		1C4C9EAF24126B910099615C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C9EAD24126B910099615C /* LaunchScreen.storyboard */; };
 		1C57D8142413BB8C005056CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C57D8132413BB8C005056CA /* Main.storyboard */; };
 		1C57D8162413BBC0005056CA /* VideoCatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57D8152413BBC0005056CA /* VideoCatalogueViewController.swift */; };
+		1C62800024157EA600B0CD81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C627FFF24157EA600B0CD81 /* GoogleService-Info.plist */; };
+		1C628002241583F800B0CD81 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C628001241583F800B0CD81 /* FirebaseStorageManager.swift */; };
+		1C6280042415DC9C00B0CD81 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6280032415DC9C00B0CD81 /* VideoModel.swift */; };
+		1C6280082415E03600B0CD81 /* VideoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6280062415E03600B0CD81 /* VideoViewCell.swift */; };
+		1C6280092415E03600B0CD81 /* VideoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6280072415E03600B0CD81 /* VideoViewCell.xib */; };
 		1CAB054A2413C3FC005C2BE2 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */; };
 		1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */; };
 		1CAB054E2413E63F005C2BE2 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054D2413E63F005C2BE2 /* PlayButton.swift */; };
+		2472B29C18871B55564D6BE9 /* Pods_Camshot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F38F90C7213BAD34BDAE11 /* Pods_Camshot.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +31,17 @@
 		1C4C9EB024126B910099615C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C57D8132413BB8C005056CA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1C57D8152413BBC0005056CA /* VideoCatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCatalogueViewController.swift; sourceTree = "<group>"; };
+		1C627FFF24157EA600B0CD81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C628001241583F800B0CD81 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		1C6280032415DC9C00B0CD81 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		1C6280062415E03600B0CD81 /* VideoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewCell.swift; sourceTree = "<group>"; };
+		1C6280072415E03600B0CD81 /* VideoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewCell.xib; sourceTree = "<group>"; };
 		1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1CAB054D2413E63F005C2BE2 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		35F38F90C7213BAD34BDAE11 /* Pods_Camshot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Camshot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDADA57DBE2401BD8E158A89 /* Pods-Camshot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camshot.release.xcconfig"; path = "Target Support Files/Pods-Camshot/Pods-Camshot.release.xcconfig"; sourceTree = "<group>"; };
+		BF287634B66C88598F146765 /* Pods-Camshot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camshot.debug.xcconfig"; path = "Target Support Files/Pods-Camshot/Pods-Camshot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2472B29C18871B55564D6BE9 /* Pods_Camshot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +61,8 @@
 			children = (
 				1C4C9EA124126B8D0099615C /* Camshot */,
 				1C4C9EA024126B8D0099615C /* Products */,
+				DD4FA7C57524E37A28E8F74A /* Pods */,
+				F3D0C18B82A88C29B8B9CE93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +77,7 @@
 		1C4C9EA124126B8D0099615C /* Camshot */ = {
 			isa = PBXGroup;
 			children = (
+				1C6280052415DFFE00B0CD81 /* Video */,
 				1C4C9EA224126B8D0099615C /* AppDelegate.swift */,
 				1C4C9EA824126B910099615C /* Assets.xcassets */,
 				1C4C9EAD24126B910099615C /* LaunchScreen.storyboard */,
@@ -69,8 +87,37 @@
 				1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */,
 				1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */,
 				1CAB054D2413E63F005C2BE2 /* PlayButton.swift */,
+				1C627FFF24157EA600B0CD81 /* GoogleService-Info.plist */,
+				1C628001241583F800B0CD81 /* FirebaseStorageManager.swift */,
 			);
 			path = Camshot;
+			sourceTree = "<group>";
+		};
+		1C6280052415DFFE00B0CD81 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				1C6280032415DC9C00B0CD81 /* VideoModel.swift */,
+				1C6280062415E03600B0CD81 /* VideoViewCell.swift */,
+				1C6280072415E03600B0CD81 /* VideoViewCell.xib */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		DD4FA7C57524E37A28E8F74A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF287634B66C88598F146765 /* Pods-Camshot.debug.xcconfig */,
+				BDADA57DBE2401BD8E158A89 /* Pods-Camshot.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F3D0C18B82A88C29B8B9CE93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35F38F90C7213BAD34BDAE11 /* Pods_Camshot.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +127,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C4C9EB324126B910099615C /* Build configuration list for PBXNativeTarget "Camshot" */;
 			buildPhases = (
+				DC80A29C3A29CBE4E61E6E32 /* [CP] Check Pods Manifest.lock */,
 				1C4C9E9B24126B8C0099615C /* Sources */,
 				1C4C9E9C24126B8C0099615C /* Frameworks */,
 				1C4C9E9D24126B8C0099615C /* Resources */,
+				E831BD0DD401C6AF9C70DD03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4C9EAF24126B910099615C /* LaunchScreen.storyboard in Resources */,
+				1C62800024157EA600B0CD81 /* GoogleService-Info.plist in Resources */,
+				1C6280092415E03600B0CD81 /* VideoViewCell.xib in Resources */,
 				1C57D8142413BB8C005056CA /* Main.storyboard in Resources */,
 				1C4C9EA924126B910099615C /* Assets.xcassets in Resources */,
 			);
@@ -139,15 +190,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DC80A29C3A29CBE4E61E6E32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Camshot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E831BD0DD401C6AF9C70DD03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Camshot/Pods-Camshot-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Camshot/Pods-Camshot-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Camshot/Pods-Camshot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C4C9E9B24126B8C0099615C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C6280082415E03600B0CD81 /* VideoViewCell.swift in Sources */,
 				1CAB054A2413C3FC005C2BE2 /* RecordViewController.swift in Sources */,
 				1CAB054E2413E63F005C2BE2 /* PlayButton.swift in Sources */,
 				1C57D8162413BBC0005056CA /* VideoCatalogueViewController.swift in Sources */,
+				1C6280042415DC9C00B0CD81 /* VideoModel.swift in Sources */,
 				1C4C9EA324126B8D0099615C /* AppDelegate.swift in Sources */,
+				1C628002241583F800B0CD81 /* FirebaseStorageManager.swift in Sources */,
 				1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +378,7 @@
 		};
 		1C4C9EB424126B910099615C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF287634B66C88598F146765 /* Pods-Camshot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -293,7 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = timicodes.Camshot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timicodes.camshot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,6 +399,7 @@
 		};
 		1C4C9EB524126B910099615C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDADA57DBE2401BD8E158A89 /* Pods-Camshot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,7 +411,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = timicodes.Camshot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timicodes.camshot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
