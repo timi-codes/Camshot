@@ -1,0 +1,6 @@
+framework module Pods_Camshot {
+  umbrella header "Pods-Camshot-umbrella.h"
+
+  export *
+  module * { export * }
+}
