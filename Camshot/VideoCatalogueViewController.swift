@@ -17,6 +17,7 @@ class VideoCatalogueViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataManager.shared.firstVC = self
         setUpNavigation()
         getAllVideos()
         collectionView.delegate = self
@@ -25,12 +26,13 @@ class VideoCatalogueViewController: UICollectionViewController {
         setUpGridview()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        collectionView.reloadData()
-//        collectionView.setNeedsDisplay()
-//        print("coming back")
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+////        getAllVideos()
+//        collectionView.reloadData()
+////        collectionView.setNeedsDisplay()
+////        print("coming back")
+//    }
     
     func setUpNavigation(){
         navigationItem.title = "Camshot"
@@ -60,7 +62,8 @@ class VideoCatalogueViewController: UICollectionViewController {
 
     }
     
-    private func getAllVideos(){
+func getAllVideos(){
+        videos = []
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
@@ -96,14 +99,11 @@ extension VideoCatalogueViewController  {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoViewCell
         cell.setData(video: videos[indexPath.row])
-        // Configure the cell
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        
         performSegue(withIdentifier: "playVideo", sender: videos[indexPath.row].url)
-        print(" selected")
     }
 }
 

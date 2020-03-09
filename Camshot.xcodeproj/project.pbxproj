@@ -17,6 +17,7 @@
 		1C6280042415DC9C00B0CD81 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6280032415DC9C00B0CD81 /* VideoModel.swift */; };
 		1C6280082415E03600B0CD81 /* VideoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6280062415E03600B0CD81 /* VideoViewCell.swift */; };
 		1C6280092415E03600B0CD81 /* VideoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6280072415E03600B0CD81 /* VideoViewCell.xib */; };
+		1C62800B2416AACA00B0CD81 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C62800A2416AACA00B0CD81 /* DataManager.swift */; };
 		1CAB054A2413C3FC005C2BE2 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */; };
 		1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */; };
 		1CAB054E2413E63F005C2BE2 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054D2413E63F005C2BE2 /* PlayButton.swift */; };
@@ -36,6 +37,7 @@
 		1C6280032415DC9C00B0CD81 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		1C6280062415E03600B0CD81 /* VideoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewCell.swift; sourceTree = "<group>"; };
 		1C6280072415E03600B0CD81 /* VideoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewCell.xib; sourceTree = "<group>"; };
+		1C62800A2416AACA00B0CD81 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1CAB054D2413E63F005C2BE2 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				1CAB054D2413E63F005C2BE2 /* PlayButton.swift */,
 				1C627FFF24157EA600B0CD81 /* GoogleService-Info.plist */,
 				1C628001241583F800B0CD81 /* FirebaseStorageManager.swift */,
+				1C62800A2416AACA00B0CD81 /* DataManager.swift */,
 			);
 			path = Camshot;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				1C6280042415DC9C00B0CD81 /* VideoModel.swift in Sources */,
 				1C4C9EA324126B8D0099615C /* AppDelegate.swift in Sources */,
 				1C628002241583F800B0CD81 /* FirebaseStorageManager.swift in Sources */,
+				1C62800B2416AACA00B0CD81 /* DataManager.swift in Sources */,
 				1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -84,6 +84,8 @@ class PreviewViewController: UIViewController {
             
             SVProgressHUD.dismiss()
             if isSuccess {
+                DataManager.shared.firstVC.getAllVideos()
+                DataManager.shared.firstVC.collectionView.reloadData()
                 self.dismiss(animated: true, completion: nil)
             }
         
