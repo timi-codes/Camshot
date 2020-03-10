@@ -191,6 +191,8 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         }
         
         performSegue(withIdentifier: "previewVideo", sender: outputFileURL)
+        self.captureSession.stopRunning()
+
     }
     
     // MARK: - PREPARE

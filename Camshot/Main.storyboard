@@ -231,4 +231,5 @@
         <image name="record-button" width="208" height="208"/>
         <image name="rotate.left.fill" catalog="system" width="64" height="64"/>
     </resources>
+    <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

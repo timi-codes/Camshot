@@ -32,14 +32,17 @@ class VideoCatalogueViewController: UICollectionViewController {
     func setUpNavigation(){
         navigationItem.title = "Camshot"
         self.navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.heavy)
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.heavy),
+            NSAttributedString.Key.foregroundColor: UIColor.systemPink
         ]
 
         let cameraButton = UIButton(type: .system)
         cameraButton.setImage(#imageLiteral(resourceName: "cam-icon").withRenderingMode(.alwaysOriginal), for: .normal)
+//        cameraButton.imageView?.contentMode = .scaleAspectFit
         cameraButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         cameraButton.addTarget(self, action: #selector(showCamera), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cameraButton)
+
     }
     
     
