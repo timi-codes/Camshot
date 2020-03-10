@@ -73,9 +73,7 @@ func getAllVideos(){
         } catch {
             print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
         }
-    
-        print("\(videos)==>")
-        
+            
     }
         
     // MARK: - PREPARE

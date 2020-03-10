@@ -19,7 +19,6 @@ class VideoViewCell: UICollectionViewCell {
     }
     
     func setData(video: Video){
-        print("video.url", video.url)
         let originalImage = VideoUtils().videoPreviewImage(url: video.url)
 
         

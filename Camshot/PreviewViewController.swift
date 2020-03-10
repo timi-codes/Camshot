@@ -136,7 +136,6 @@ class PreviewViewController: UIViewController {
 
                 //self.player.replaceCurrentItem(with: playerItem)
                 if let player = playerItem  {
-                    print("start: ", player)
 
                     let exporter = AVAssetExportSession(asset: player.asset, presetName: AVAssetExportPresetHighestQuality)
                     

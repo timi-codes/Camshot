@@ -45,7 +45,6 @@ class VideoUtils {
     }
     
     func videoPreviewImage(url: URL) -> UIImage? {
-        print("originalImageUrl", url)
         let asset = AVURLAsset(url: url)
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
