@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+import AVKit
 
 
 class VideoCatalogueViewController: UICollectionViewController {
@@ -26,13 +28,6 @@ class VideoCatalogueViewController: UICollectionViewController {
         setUpGridview()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-////        getAllVideos()
-//        collectionView.reloadData()
-////        collectionView.setNeedsDisplay()
-////        print("coming back")
-//    }
     
     func setUpNavigation(){
         navigationItem.title = "Camshot"
@@ -69,22 +64,23 @@ func getAllVideos(){
 
         do {
             let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            print("<==\(fileURLs)==>")
             for url in fileURLs {
                 videos.append(Video(url: url, filter: "CIVibrance"))
             }
         } catch {
             print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
         }
+    
+        print("\(videos)==>")
         
     }
         
     // MARK: - PREPARE
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "playVideo" {
-            let previewViewController = segue.destination as! PreviewViewController
-            previewViewController.videoUrl = (sender as! URL)
-            previewViewController.isEdit = false
+            let videoPlayerViewController = segue.destination as! AVPlayerViewController
+            let videoFileURL = sender as! URL
+            videoPlayerViewController.player = AVPlayer(url: videoFileURL)
         }
     }
     
@@ -99,6 +95,8 @@ extension VideoCatalogueViewController  {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as! VideoViewCell
         cell.setData(video: videos[indexPath.row])
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
         return cell
     }
     

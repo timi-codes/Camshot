@@ -14,13 +14,13 @@ import SVProgressHUD
 
 class PreviewViewController: UIViewController {
     @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var filtersScrollView: UIScrollView!
+    @IBOutlet weak var filterCollectionView: UICollectionView!
     @IBOutlet weak var actionBar: UIView!
 
     var videoUrl:  URL?
-    var isEdit = true
     var playPauseButton: PlayPauseButton!
     var originalImage: UIImage?
+    var filteredImage: CIImage?
     var selectedFilter: String?
 
     var CIFilterNames = [
@@ -38,23 +38,19 @@ class PreviewViewController: UIViewController {
     ]
     
     var player: AVPlayer?
-    
+    var playerItem: AVPlayerItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if !isEdit {
-            filtersScrollView.isHidden = true
-            actionBar.isHidden = true
-        }
-
         guard let url = videoUrl else { return }
-        originalImage = videoPreviewImage(url: url)
-        createFilterCard()
-        configurePlayer(url)
-        
-        print("url==>\(url)")
 
+        originalImage = VideoUtils().videoPreviewImage(url: url)
+        
+        self.filterCollectionView.dataSource = self
+        self.filterCollectionView.delegate = self
+        self.filterCollectionView.register(FilterViewCell.self, forCellWithReuseIdentifier: "FilterCell")
+
+        configurePlayer(url)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -77,10 +73,10 @@ class PreviewViewController: UIViewController {
 
         guard let url = videoUrl else { return }
         
-                
-        let filename = uniqueFileNameWithExtention(fileExtension: "mov")
-        writeToFile(url: url, filename: filename)
-        FirebaseStorageManager().uploadMetadata(localFile: url, serverFileName: filename, filter: selectedFilter) { (isSuccess, documentID) in
+        let filename = VideoUtils().uniqueFileNameWithExtention(fileExtension: "mov")
+        //VideoUtils().writeToFile(url: url, filename: filename)
+        saveFilteredVideo(url: url)
+        VideoUtils().uploadMetadata(localFile: url, serverFileName: filename, filter: selectedFilter) { (isSuccess, documentID) in
             
             SVProgressHUD.dismiss()
             if isSuccess {
@@ -88,65 +84,14 @@ class PreviewViewController: UIViewController {
                 DataManager.shared.firstVC.collectionView.reloadData()
                 self.dismiss(animated: true, completion: nil)
             }
-        
-            print("uploadImageData: \(isSuccess), \(String(describing: documentID))")
         }
     }
     
-    @objc func filterButtonTapped(sender: UIButton) {
-        selectedFilter = CIFilterNames[sender.tag]
-        
-        let isPlaying = player?.rate != 0 && player?.error == nil
-        if(!isPlaying){
-           player?.currentItem?.videoComposition = player?.currentItem?.videoComposition?.mutableCopy() as? AVVideoComposition
-        }
-    }
-    
-    
-    func createFilterCard() {
-        var xCoord: CGFloat = 8
-        let yCoord: CGFloat = 8
-        let buttonWidth:CGFloat = 75
-        let buttonHeight: CGFloat = 95
-        let gapBetweenButtons: CGFloat = 8
-        
-        var itemCount = 0
-             
-        for i in 0..<CIFilterNames.count {
-            itemCount = i
-                 
-            let filterButton = UIButton(type: .custom)
-            filterButton.frame = CGRect(x: xCoord, y: yCoord, width: buttonWidth, height: buttonHeight)
-            filterButton.tag = itemCount
-            filterButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
-            filterButton.layer.cornerRadius = 6
-            filterButton.clipsToBounds = true
-             
-            let context = CIContext()
-            let filterImage = CIImage(image: originalImage!)
-            let output = filterImage!.applyingFilter("\(CIFilterNames[i])")
-            
-            guard let cgImage = context.createCGImage(output, from: output.extent) else {
-                return
-            }
-            guard let orientation = originalImage?.imageOrientation else {
-                return
-            }
-            
-            let imageForButton = UIImage(cgImage: cgImage, scale: 1.0, orientation: orientation)
-            filterButton.setBackgroundImage(imageForButton, for: .normal)
-            
-            xCoord +=  buttonWidth + gapBetweenButtons
-                  filtersScrollView.addSubview(filterButton)
-            filtersScrollView.contentSize = CGSize(width: buttonWidth * CGFloat(itemCount+2), height: yCoord)
-
-        }
-    }
     
     func configurePlayer(_ url: URL){
         let asset = AVAsset(url: url)
-        let playerItem = AVPlayerItem(asset: asset)
-        playerItem.videoComposition = AVVideoComposition(asset: asset, applyingCIFiltersWithHandler: { request in
+        playerItem = AVPlayerItem(asset: asset)
+        playerItem?.videoComposition = AVVideoComposition(asset: asset, applyingCIFiltersWithHandler: { request in
             let inputImage = request.sourceImage
             var output = inputImage
             
@@ -178,50 +123,96 @@ class PreviewViewController: UIViewController {
 
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem, queue: .main) { _ in
             self.player?.seek(to: CMTime.zero)
-            self.player?.currentItem?.videoComposition = self.player?.currentItem?.videoComposition
         }
     }
     
-    func videoPreviewImage(url: URL) -> UIImage? {
-        let asset = AVURLAsset(url: url)
-        let generator = AVAssetImageGenerator(asset: asset)
-        generator.appliesPreferredTrackTransform = true
-        if let cgImage = try? generator.copyCGImage(at: CMTime(seconds: 2, preferredTimescale: 60), actualTime: nil) {
-            return UIImage(cgImage: cgImage)
-        }
-        else {
-            return nil
-        }
-    }
     
-    func uniqueFileNameWithExtention(fileExtension: String) -> String {
-        let uniqueString: String = ProcessInfo.processInfo.globallyUniqueString
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMddh hmmsss"
-        let dateString: String = formatter.string(from: Date())
-        let uniqueName: String = "\(uniqueString)_\(dateString)"
-        if fileExtension.count > 0 {
-            let fileName: String = "\(uniqueName).\(fileExtension)"
-            return fileName
-        }
-        return uniqueName
-    }
     
-    func writeToFile(url: URL, filename: String) {
+    private func saveFilteredVideo(url: URL){
+        
+        
         do {
-           let videoData = try Data(contentsOf: url)
-           let fm = FileManager.default
+                let asset = AVAsset(url: url)
 
-           guard let docUrl = fm.urls(for: .documentDirectory, in: .userDomainMask).first else {
-               print("Unable to reach the documents folder")
-               return
-           }
-            let localUrl = docUrl.appendingPathComponent(filename)
-            try videoData.write(to: localUrl)
-            print("<==localUrl: \(localUrl)==>")
+                //self.player.replaceCurrentItem(with: playerItem)
+                if let player = playerItem  {
+                    print("start: ", player)
+
+                    let exporter = AVAssetExportSession(asset: player.asset, presetName: AVAssetExportPresetHighestQuality)
+                    
+                    exporter?.videoComposition = AVVideoComposition(asset: asset, applyingCIFiltersWithHandler: { request in
+                        let inputImage = request.sourceImage
+                        var output = inputImage
+                        
+                        if let filter = self.selectedFilter {
+                            output = inputImage.applyingFilter(filter)
+                        }
+                        request.finish(with: output, context: nil)
+                    })
+                    
+                    exporter?.outputFileType = .mov
+                    let filename = VideoUtils().uniqueFileNameWithExtention(fileExtension: "mov")
+                    VideoUtils().writeToFile(url: url, filename: filename)
+                    let videoData = try Data(contentsOf: url)
+                    let fm = FileManager.default
+
+                      guard let docUrl = fm.urls(for: .documentDirectory, in: .userDomainMask).first else {
+                          print("Unable to reach the documents folder")
+                          return
+                      }
+                       let outputURL = docUrl.appendingPathComponent(filename)
+                    
+                    //try videoData.write(to: outputURL)
+                    exporter?.outputURL = outputURL
+                    exporter?.exportAsynchronously(completionHandler: {
+                        guard exporter?.status == .completed else {
+                            print("export failed: \(String(describing: exporter?.error))")
+                            return
+                        }
+                        print("done1: ",docUrl, outputURL)
+                    }
+                )
+                }
+            
         } catch {
            print("could not save data")
         }
-    }
 
+    }
 }
+
+
+extension PreviewViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return CIFilterNames.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterViewCell
+        
+        if let thumbnail = originalImage {
+            cell.setData(filter: CIFilterNames[indexPath.row], originalImage: thumbnail)
+        }
+        
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        selectedFilter = CIFilterNames[indexPath.row]
+        
+        let isPlaying = player?.rate != 0 && player?.error == nil
+        if(!isPlaying){
+           player?.currentItem?.videoComposition = player?.currentItem?.videoComposition?.mutableCopy() as? AVVideoComposition
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 75, height: 95)
+    }
+    
+}
+

@@ -101,25 +101,26 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     
     @IBAction func startRecordingButton(_ sender: UIButton) {
         
-        if isRecording == true {
-            print("stopped recording")
-            isRecording = false
-              UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: { () -> Void in
-                  self.recordButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-              }, completion: nil)
-              
-              recordButton.layer.removeAllAnimations()
-              videoFileOutput?.stopRecording()
+        if !isRecording {
+           isRecording = true
+            
+           UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: { () -> Void in
+                 self.recordButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+             }, completion: nil)
+             
+           let outputPath = NSTemporaryDirectory() + "output.mov"
+           let outputFileURL = URL(fileURLWithPath: outputPath)
+           videoFileOutput?.startRecording(to: outputFileURL, recordingDelegate: self)
+            
         }else {
-            print("started recording")
-            isRecording = true
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: { () -> Void in
-                  self.recordButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-              }, completion: nil)
-              
-            let outputPath = NSTemporaryDirectory() + "output.mov"
-            let outputFileURL = URL(fileURLWithPath: outputPath)
-            videoFileOutput?.startRecording(to: outputFileURL, recordingDelegate: self)
+            
+            isRecording = false
+             UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: { () -> Void in
+                 self.recordButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+             }, completion: nil)
+             
+             recordButton.layer.removeAllAnimations()
+             videoFileOutput?.stopRecording()
         }
     }
     

@@ -15,12 +15,13 @@ class VideoViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         imageView.layer.cornerRadius = 5
     }
     
     func setData(video: Video){
-        let originalImage = videoPreviewImage(url: video.url)
+        print("video.url", video.url)
+        let originalImage = VideoUtils().videoPreviewImage(url: video.url)
+
         
         let context = CIContext()
         let filterImage = CIImage(image: originalImage!)
@@ -33,23 +34,8 @@ class VideoViewCell: UICollectionViewCell {
         guard let orientation = originalImage?.imageOrientation else {
             return
         }
-        
         let videoThubnail = UIImage(cgImage: cgImage, scale: 1.0, orientation: orientation)
-        print(videoThubnail)
-
         imageView.backgroundColor = UIColor(patternImage: videoThubnail)
-    }
-    
-    private func videoPreviewImage(url: URL) -> UIImage? {
-        let asset = AVURLAsset(url: url)
-        let generator = AVAssetImageGenerator(asset: asset)
-        generator.appliesPreferredTrackTransform = true
-        if let cgImage = try? generator.copyCGImage(at: CMTime(seconds: 2, preferredTimescale: 60), actualTime: nil) {
-            return UIImage(cgImage: cgImage)
-        }
-        else {
-            return nil
-        }
     }
 
 }

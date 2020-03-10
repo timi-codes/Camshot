@@ -13,11 +13,13 @@
 		1C57D8142413BB8C005056CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C57D8132413BB8C005056CA /* Main.storyboard */; };
 		1C57D8162413BBC0005056CA /* VideoCatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57D8152413BBC0005056CA /* VideoCatalogueViewController.swift */; };
 		1C62800024157EA600B0CD81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C627FFF24157EA600B0CD81 /* GoogleService-Info.plist */; };
-		1C628002241583F800B0CD81 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C628001241583F800B0CD81 /* FirebaseStorageManager.swift */; };
+		1C628002241583F800B0CD81 /* VideoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C628001241583F800B0CD81 /* VideoUtils.swift */; };
 		1C6280042415DC9C00B0CD81 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6280032415DC9C00B0CD81 /* VideoModel.swift */; };
 		1C6280082415E03600B0CD81 /* VideoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6280062415E03600B0CD81 /* VideoViewCell.swift */; };
 		1C6280092415E03600B0CD81 /* VideoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6280072415E03600B0CD81 /* VideoViewCell.xib */; };
 		1C62800B2416AACA00B0CD81 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C62800A2416AACA00B0CD81 /* DataManager.swift */; };
+		1C62800E2416C86900B0CD81 /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C62800D2416C86900B0CD81 /* FilterViewCell.swift */; };
+		1C6280102416C9CB00B0CD81 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C62800F2416C9CA00B0CD81 /* Filter.swift */; };
 		1CAB054A2413C3FC005C2BE2 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */; };
 		1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */; };
 		1CAB054E2413E63F005C2BE2 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB054D2413E63F005C2BE2 /* PlayButton.swift */; };
@@ -33,11 +35,13 @@
 		1C57D8132413BB8C005056CA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1C57D8152413BBC0005056CA /* VideoCatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCatalogueViewController.swift; sourceTree = "<group>"; };
 		1C627FFF24157EA600B0CD81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1C628001241583F800B0CD81 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		1C628001241583F800B0CD81 /* VideoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUtils.swift; sourceTree = "<group>"; };
 		1C6280032415DC9C00B0CD81 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		1C6280062415E03600B0CD81 /* VideoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewCell.swift; sourceTree = "<group>"; };
 		1C6280072415E03600B0CD81 /* VideoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewCell.xib; sourceTree = "<group>"; };
 		1C62800A2416AACA00B0CD81 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		1C62800D2416C86900B0CD81 /* FilterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewCell.swift; sourceTree = "<group>"; };
+		1C62800F2416C9CA00B0CD81 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		1CAB05492413C3FC005C2BE2 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		1CAB054D2413E63F005C2BE2 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
@@ -79,7 +83,8 @@
 		1C4C9EA124126B8D0099615C /* Camshot */ = {
 			isa = PBXGroup;
 			children = (
-				1C6280052415DFFE00B0CD81 /* Video */,
+				1C62800C2416C83800B0CD81 /* FilterItem */,
+				1C6280052415DFFE00B0CD81 /* VideoItem */,
 				1C4C9EA224126B8D0099615C /* AppDelegate.swift */,
 				1C4C9EA824126B910099615C /* Assets.xcassets */,
 				1C4C9EAD24126B910099615C /* LaunchScreen.storyboard */,
@@ -90,20 +95,29 @@
 				1CAB054B2413E56C005C2BE2 /* PreviewViewController.swift */,
 				1CAB054D2413E63F005C2BE2 /* PlayButton.swift */,
 				1C627FFF24157EA600B0CD81 /* GoogleService-Info.plist */,
-				1C628001241583F800B0CD81 /* FirebaseStorageManager.swift */,
+				1C628001241583F800B0CD81 /* VideoUtils.swift */,
 				1C62800A2416AACA00B0CD81 /* DataManager.swift */,
 			);
 			path = Camshot;
 			sourceTree = "<group>";
 		};
-		1C6280052415DFFE00B0CD81 /* Video */ = {
+		1C6280052415DFFE00B0CD81 /* VideoItem */ = {
 			isa = PBXGroup;
 			children = (
 				1C6280032415DC9C00B0CD81 /* VideoModel.swift */,
 				1C6280062415E03600B0CD81 /* VideoViewCell.swift */,
 				1C6280072415E03600B0CD81 /* VideoViewCell.xib */,
 			);
-			path = Video;
+			path = VideoItem;
+			sourceTree = "<group>";
+		};
+		1C62800C2416C83800B0CD81 /* FilterItem */ = {
+			isa = PBXGroup;
+			children = (
+				1C62800D2416C86900B0CD81 /* FilterViewCell.swift */,
+				1C62800F2416C9CA00B0CD81 /* Filter.swift */,
+			);
+			path = FilterItem;
 			sourceTree = "<group>";
 		};
 		DD4FA7C57524E37A28E8F74A /* Pods */ = {
@@ -240,13 +254,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C62800E2416C86900B0CD81 /* FilterViewCell.swift in Sources */,
 				1C6280082415E03600B0CD81 /* VideoViewCell.swift in Sources */,
+				1C6280102416C9CB00B0CD81 /* Filter.swift in Sources */,
 				1CAB054A2413C3FC005C2BE2 /* RecordViewController.swift in Sources */,
 				1CAB054E2413E63F005C2BE2 /* PlayButton.swift in Sources */,
 				1C57D8162413BBC0005056CA /* VideoCatalogueViewController.swift in Sources */,
 				1C6280042415DC9C00B0CD81 /* VideoModel.swift in Sources */,
 				1C4C9EA324126B8D0099615C /* AppDelegate.swift in Sources */,
-				1C628002241583F800B0CD81 /* FirebaseStorageManager.swift in Sources */,
+				1C628002241583F800B0CD81 /* VideoUtils.swift in Sources */,
 				1C62800B2416AACA00B0CD81 /* DataManager.swift in Sources */,
 				1CAB054C2413E56C005C2BE2 /* PreviewViewController.swift in Sources */,
 			);
