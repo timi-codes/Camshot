@@ -74,8 +74,8 @@ class PreviewViewController: UIViewController {
         guard let url = videoUrl else { return }
         
         let filename = VideoUtils().uniqueFileNameWithExtention(fileExtension: "mov")
-        //VideoUtils().writeToFile(url: url, filename: filename)
-        saveFilteredVideo(url: url)
+        VideoUtils().writeToFile(url: url, filename: filename)
+        //saveFilteredVideo(url: url)
         VideoUtils().uploadMetadata(localFile: url, serverFileName: filename, filter: selectedFilter) { (isSuccess, documentID) in
             
             SVProgressHUD.dismiss()
