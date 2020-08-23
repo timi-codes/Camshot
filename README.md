@@ -10,7 +10,7 @@ A video filtering IOS sample application built with AVFoundation Swift Library
 
 ## How to use
  - Clone project
- - Navigatio to the project directory and Run `pod install`. Voila!
+ - Navigate to the project directory and Run `pod install`. Voila!
  
  ##Built by [Timi Tejumola](www.twitter.com/timicodes)
  
